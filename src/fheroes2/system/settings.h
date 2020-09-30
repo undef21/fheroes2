@@ -40,7 +40,8 @@
 #define FORMAT_VERSION_3255 3255
 #define LAST_FORMAT_VERSION FORMAT_VERSION_3255
 
-#define CURRENT_FORMAT_VERSION FORMAT_VERSION_082_RELEASE // TODO: update this value for a new release
+// Value is set to 8100+ to distinguish save format changes in master branch after 0.8.1 release
+#define CURRENT_FORMAT_VERSION 8111 // TODO: update this value for a new release
 
 enum
 {

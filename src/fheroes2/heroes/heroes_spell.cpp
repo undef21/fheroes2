@@ -508,10 +508,7 @@ bool ActionSpellVisions( Heroes & hero )
     if ( monsters.size() ) {
         for ( MapsIndexes::const_iterator it = monsters.begin(); it != monsters.end(); ++it ) {
             const Maps::Tiles & tile = world.GetTiles( *it );
-            MapMonster * map_troop = NULL;
-            if ( tile.GetObject() == MP2::OBJ_MONSTER )
-                map_troop = dynamic_cast<MapMonster *>( world.GetMapObject( tile.GetObjectUID() ) );
-
+            MapMonster * map_troop = dynamic_cast<MapMonster *>( world.GetMapObject( tile.GetObjectUID( MP2::OBJ_MONSTER ) ) );
             Troop troop = map_troop ? map_troop->QuantityTroop() : tile.QuantityTroop();
             JoinCount join = Army::GetJoinSolution( hero, tile, troop );
 
@@ -574,7 +571,10 @@ bool ActionSpellSetGuardian( Heroes & hero, const Spell & spell, int mons )
     const u32 count = hero.GetPower() * spell.ExtraValue();
 
     if ( count ) {
-        tile.SetQuantity3( spell() );
+        Maps::TilesAddon * addon = tile.FindObject( MP2::OBJ_MINES );
+
+        if ( addon )
+            addon->tmp = spell();
 
         if ( spell == Spell::HAUNT ) {
             world.CaptureObject( tile.GetIndex(), Color::UNUSED );

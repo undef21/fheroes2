@@ -217,7 +217,7 @@ u32 M82::GetIndexLOOP00XXFromObject( int obj )
         return 2;
     case MP2::OBJ_ORACLE:
         return 3;
-    case MP2::OBJ_STONELITHS:
+    case MP2::OBJ_STONELIGHTS:
         return 4;
     case MP2::OBJ_LAVAPOOL:
         return 5;

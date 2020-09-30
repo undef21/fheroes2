@@ -19,52 +19,11 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-#ifndef H2GAMEDEFS_H
-#define H2GAMEDEFS_H
 
-#include "engine.h"
+#ifndef XMLWRAP_H
+#define XMLWRAP_H
 
-#define MAJOR_VERSION 0
-#define MINOR_VERSION 8
-#define INTERMEDIATE_VERSION 1
-
-#ifdef WITH_XML
-#include "xmlccwrap.h"
-#endif
-
-#include "translations.h"
-#define _( s ) Translation::gettext( s )
-#define _n( a, b, c ) Translation::ngettext( a, b, c )
-
-// hardcore defines: kingdom
-#define KINGDOMMAX 6
-
-// hardcore defines: world
-#define MAXCASTLES 72
-#define DAYOFWEEK 7
-#define WEEKOFMONTH 4
-
-// hardcore defines: castle
-#define CASTLEMAXMONSTER 6
-
-// hardcore defines: heroes
-#define HEROESMAXARTIFACT 14
-#define HEROESMAXSKILL 8
-#define HEROESMAXCOUNT 71
-
-// hardcore defines: skill
-#define MAXPRIMARYSKILL 4
-#define MAXSECONDARYSKILL 14
-
-// hardcore defines: army
-#define ARMYMAXTROOPS 5
-
-// hardcore defines: interface
-#define RADARWIDTH 144
-#define BORDERWIDTH 16
-
-// ai/hero speed
-#define DEFAULT_SPEED_DELAY 5
-#define DEFAULT_BATTLE_SPEED 4
+#include "tinyxml.h"
+#include "gzstream.h"
 
 #endif

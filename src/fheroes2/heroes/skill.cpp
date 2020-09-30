@@ -844,7 +844,9 @@ StreamBase & Skill::operator>>( StreamBase & sb, SecSkills & ss )
     std::vector<Secondary> & v = ss;
     sb >> v;
 
-    if ( v.size() > HEROESMAXSKILL )
-        v.resize( HEROESMAXSKILL );
+    if ( FORMAT_VERSION_3255 > Game::GetLoadVersion() ) {
+        if ( v.size() > HEROESMAXSKILL )
+            v.resize( HEROESMAXSKILL );
+    }
     return sb;
 }
